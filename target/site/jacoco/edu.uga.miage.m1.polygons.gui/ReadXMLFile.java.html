@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReadXMLFile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">persistenceG2_5</a> &gt; <a href="index.source.html" class="el_package">edu.uga.miage.m1.polygons.gui</a> &gt; <span class="el_source">ReadXMLFile.java</span></div><h1>ReadXMLFile.java</h1><pre class="source lang-java linenums">package edu.uga.miage.m1.polygons.gui;
+
+import edu.uga.miage.m1.polygons.gui.shapes.Circle;
+import edu.uga.miage.m1.polygons.gui.shapes.Square;
+import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.XMLConstants;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+
+import static edu.uga.miage.m1.polygons.gui.JDrawingFrame.logger;
+
+public class ReadXMLFile {
+
+    File selectedFile;
+<span class="fc" id="L27">    private transient ArrayList&lt;Circle&gt; circleShape = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L28">    private transient ArrayList&lt;Triangle&gt; triangleShape = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L29">    private transient ArrayList&lt;Square&gt; squareShape = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L31">    public ReadXMLFile(File selectedFile) {</span>
+<span class="fc" id="L32">        this.selectedFile = selectedFile;</span>
+<span class="fc" id="L33">    }</span>
+
+    public void getShapes() throws ParserConfigurationException {
+        //creating a constructor of file class and parsing an XML file
+<span class="fc" id="L37">        File file = new File(selectedFile.toURI());</span>
+        //an instance of factory that gives a document builder
+<span class="fc" id="L39">        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</span>
+
+        //REDHAT
+        //https://www.blackhat.com/docs/us-15/materials/us-15-Wang-FileCry-The-New-Age-Of-XXE-java-wp.pdf
+<span class="fc" id="L43">        factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);</span>
+<span class="fc" id="L44">        factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, &quot;&quot;);</span>
+<span class="fc" id="L45">        factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, &quot;&quot;);</span>
+
+        //OWASP
+        //https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+<span class="fc" id="L49">        factory.setFeature(&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;, true);</span>
+<span class="fc" id="L50">        factory.setFeature(&quot;http://xml.org/sax/features/external-general-entities&quot;, false);</span>
+<span class="fc" id="L51">        factory.setFeature(&quot;http://xml.org/sax/features/external-parameter-entities&quot;, false);</span>
+        // Disable external DTDs as well
+<span class="fc" id="L53">        factory.setFeature(&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;, false);</span>
+        // and these as well, per Timothy Morgan's 2014 paper: &quot;XML Schema, DTD, and Entity Attacks&quot;
+<span class="fc" id="L55">        factory.setXIncludeAware(false);</span>
+<span class="fc" id="L56">        factory.setExpandEntityReferences(false);</span>
+
+        //an instance of builder to parse the specified xml file
+<span class="fc" id="L59">        DocumentBuilder db = null;</span>
+        try {
+<span class="fc" id="L61">            db = factory.newDocumentBuilder();</span>
+<span class="nc" id="L62">        } catch (ParserConfigurationException e) {</span>
+<span class="nc" id="L63">            logger.log(Level.SEVERE, e, () -&gt; &quot;An error occurred when newDocumentBuilder at getShapes(). &quot; + e);</span>
+<span class="fc" id="L64">        }</span>
+<span class="fc" id="L65">        Document doc = null;</span>
+        try {
+<span class="fc" id="L67">            doc = db.parse(file);</span>
+<span class="nc" id="L68">        } catch (SAXException | IOException e) {</span>
+<span class="nc" id="L69">            logger.log(Level.SEVERE, e, () -&gt; &quot;An error occurred when parse at getShapes(). &quot; + e);</span>
+<span class="fc" id="L70">        }</span>
+<span class="fc" id="L71">        doc.getDocumentElement().normalize();</span>
+<span class="fc" id="L72">        NodeList nodeList = doc.getElementsByTagName(&quot;shape&quot;);</span>
+        // nodeList is not iterable, so we are using for loop
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (int itr = 0; itr &lt; nodeList.getLength(); itr++) {</span>
+<span class="fc" id="L75">            Node node = nodeList.item(itr);</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">            if (node.getNodeType() == Node.ELEMENT_NODE) {</span>
+<span class="fc" id="L77">                Element eElement = (Element) node;</span>
+<span class="pc bpc" id="L78" title="1 of 4 branches missed.">                switch (eElement.getElementsByTagName(&quot;type&quot;).item(0).getTextContent()) {</span>
+                    case &quot;circle&quot;:
+<span class="fc" id="L80">                        circleShape.add(new Circle(Integer.parseInt(eElement.getElementsByTagName(&quot;x&quot;).item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName(&quot;y&quot;).item(0).getTextContent())));</span>
+<span class="fc" id="L81">                        break;</span>
+                    case &quot;triangle&quot;:
+<span class="fc" id="L83">                        triangleShape.add(new Triangle(Integer.parseInt(eElement.getElementsByTagName(&quot;x&quot;).item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName(&quot;y&quot;).item(0).getTextContent())));</span>
+<span class="fc" id="L84">                        break;</span>
+                    case &quot;square&quot;:
+<span class="fc" id="L86">                        squareShape.add(new Square(Integer.parseInt(eElement.getElementsByTagName(&quot;x&quot;).item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName(&quot;y&quot;).item(0).getTextContent())));</span>
+<span class="fc" id="L87">                        break;</span>
+                    default:
+                        break;
+                }
+            }
+        }
+<span class="fc" id="L93">    }</span>
+
+    public List&lt;Circle&gt; getCircleShape() {
+<span class="fc" id="L96">        return circleShape;</span>
+    }
+
+    public List&lt;Square&gt; getSquareShape() {
+<span class="fc" id="L100">        return squareShape;</span>
+    }
+
+    public List&lt;Triangle&gt; getTriangleShape() {
+<span class="fc" id="L104">        return triangleShape;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
