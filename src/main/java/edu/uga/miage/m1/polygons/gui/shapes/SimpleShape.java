@@ -1,7 +1,6 @@
 package edu.uga.miage.m1.polygons.gui.shapes;
 
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
-import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
 
 import java.awt.*;
 
@@ -13,10 +12,9 @@ import java.awt.*;
  */
 public abstract class SimpleShape implements Visitable {
 
+    private int mX;
 
-    int mX;
-
-    int mY;
+    private int mY;
 
     protected SimpleShape(int x, int y) {
         setXY(x, y);
@@ -28,8 +26,6 @@ public abstract class SimpleShape implements Visitable {
      * @param g2 The graphics object used for painting.
      */
     public abstract void draw(Graphics2D g2);
-
-    public abstract void accept(Visitor visitor);
 
     public abstract String getType();
 

@@ -40,13 +40,13 @@ public class Circle extends SimpleShape implements Visitable {
     @Override
     public void draw(Graphics2D g2) {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, (float) mX + 50, mY, Color.WHITE);
+        GradientPaint gradient = new GradientPaint(getX(), getY(), Color.RED, (float) getX() + 50, getY(), Color.WHITE);
         g2.setPaint(gradient);
-        g2.fill(new Ellipse2D.Double((double)mX - 25, (double)mY - 25, 50, 50));
+        g2.fill(new Ellipse2D.Double((double) getX() - 25, (double) getY() - 25, 50, 50));
         BasicStroke wideStroke = new BasicStroke(2.0f);
         g2.setColor(Color.black);
         g2.setStroke(wideStroke);
-        g2.draw(new Ellipse2D.Double((double)mX - 25, (double)mY - 25, 50, 50));
+        g2.draw(new Ellipse2D.Double((double) getX() - 25, (double) getY() - 25, 50, 50));
     }
 
     @Override
@@ -59,19 +59,5 @@ public class Circle extends SimpleShape implements Visitable {
         return "circle";
     }
 
-    @Override
-    public void setXY(int x, int y) {
-        super.setXY(x, y);
-    }
-
-    @Override
-    public int getX() {
-        return super.getX();
-    }
-
-    @Override
-    public int getY() {
-        return super.getY();
-    }
 
 }

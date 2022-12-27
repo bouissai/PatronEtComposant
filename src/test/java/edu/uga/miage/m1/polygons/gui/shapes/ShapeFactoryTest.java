@@ -17,21 +17,34 @@ class ShapeFactoryTest {
     @Test
     void test_getShapes_circle() {
         SimpleShape circleFromFactory = shapeFactory.getShape("Circle",2,3);
-        Assertions.assertEquals(circleFromFactory.getX(),2);
-        Assertions.assertEquals(circleFromFactory.getY(),3);
+        Assertions.assertEquals(2,circleFromFactory.getX());
+        Assertions.assertEquals(3,circleFromFactory.getY());
     }
 
     @Test
     void test_getShapes_triangle() {
-        SimpleShape circleFromFactory = shapeFactory.getShape("Triangle",2,3);
-        Assertions.assertEquals(circleFromFactory.getX(),2);
-        Assertions.assertEquals(circleFromFactory.getY(),3);
+        SimpleShape triangleFromFactory = shapeFactory.getShape("Triangle",2,3);
+        Assertions.assertEquals(2,triangleFromFactory.getX());
+        Assertions.assertEquals(3,triangleFromFactory.getY());
     }
 
     @Test
     void test_getShapes_square() {
-        SimpleShape circleFromFactory = shapeFactory.getShape("Square",2,3);
-        Assertions.assertEquals(circleFromFactory.getX(),2);
-        Assertions.assertEquals(circleFromFactory.getY(),3);
+        SimpleShape squareFromFactory = shapeFactory.getShape("Square",2,3);
+        Assertions.assertEquals(2,squareFromFactory.getX());
+        Assertions.assertEquals(3,squareFromFactory.getY());
     }
+    @Test
+    void test_getShapes_group() {
+        SimpleShape groupFromFactory = shapeFactory.getShape("Group",2,3);
+        Assertions.assertEquals(2,groupFromFactory.getX());
+        Assertions.assertEquals(3,groupFromFactory.getY());
+    }
+
+    @Test
+    void test_getShapes_error() {
+        SimpleShape groupFromFactory = shapeFactory.getShape("Losange",2,3);
+        Assertions.assertEquals(null,groupFromFactory);
+    }
+
 }

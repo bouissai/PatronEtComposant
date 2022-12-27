@@ -44,15 +44,15 @@ public class Square extends SimpleShape implements Visitable {
      */
     @Override
     public void draw(Graphics2D g2) {
-<span class="nc" id="L47">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
-<span class="nc" id="L48">        GradientPaint gradient = new GradientPaint((float) mX - 25, mY, Color.BLUE, (float) mX + 50, mY, Color.WHITE);</span>
-<span class="nc" id="L49">        g2.setPaint(gradient);</span>
-<span class="nc" id="L50">        g2.fill(new Rectangle2D.Double((double)mX - 25, (double)mY - 25, 50, 50));</span>
-<span class="nc" id="L51">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
-<span class="nc" id="L52">        g2.setColor(Color.black);</span>
-<span class="nc" id="L53">        g2.setStroke(wideStroke);</span>
-<span class="nc" id="L54">        g2.draw(new Rectangle2D.Double((double)mX - 25, (double)mY - 25, 50, 50));</span>
-<span class="nc" id="L55">    }</span>
+<span class="fc" id="L47">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
+<span class="fc" id="L48">        GradientPaint gradient = new GradientPaint((float) getX() - 25, getY(), Color.BLUE, (float) getX() + 50, getY(), Color.WHITE);</span>
+<span class="fc" id="L49">        g2.setPaint(gradient);</span>
+<span class="fc" id="L50">        g2.fill(new Rectangle2D.Double((double) getX() - 25, (double) getY() - 25, 50, 50));</span>
+<span class="fc" id="L51">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
+<span class="fc" id="L52">        g2.setColor(Color.black);</span>
+<span class="fc" id="L53">        g2.setStroke(wideStroke);</span>
+<span class="fc" id="L54">        g2.draw(new Rectangle2D.Double((double) getX() - 25, (double) getY() - 25, 50, 50));</span>
+<span class="fc" id="L55">    }</span>
 
     @Override
     public void accept(Visitor visitor) {
@@ -64,19 +64,5 @@ public class Square extends SimpleShape implements Visitable {
 <span class="fc" id="L64">        return &quot;square&quot;;</span>
     }
 
-    @Override
-    public int getX() {
-<span class="fc" id="L69">        return super.getX();</span>
-    }
-
-    @Override
-    public int getY() {
-<span class="fc" id="L74">        return super.getY();</span>
-    }
-
-    @Override
-    public void setXY(int x, int y) {
-<span class="fc" id="L79">        super.setXY(x, y);</span>
-<span class="fc" id="L80">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

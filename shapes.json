@@ -1,1 +1,79 @@
-{"shapes": [{"type":"square","x":236,"y":253},{"type":"square","x":233,"y":54},{"type":"square","x":432,"y":331},{"type":"square","x":362,"y":310},{"type":"square","x":362,"y":310},{"type":"group","list":{"type":"square","x":236,"y":253},{"type":"square","x":432,"y":331},{"type":"square","x":362,"y":310},{"type":"square","x":362,"y":310},}]}
+{
+  "shapes": [
+    {
+      "type": "square",
+      "x": 211,
+      "y": 243
+    },
+    {
+      "type": "square",
+      "x": 297,
+      "y": 273
+    },
+    {
+      "type": "group",
+      "list": {
+        "type": "square",
+        "x": 211,
+        "y": 243
+      },
+    {
+      "type": "square",
+      "x": 297,
+      "y": 273
+    },
+    },
+    {
+      "type": "triangle",
+      "x": 537,
+      "y": 200
+    },
+    {
+      "type": "triangle",
+      "x": 581,
+      "y": 259
+    },
+    {
+      "type": "group",
+      "list": {
+        "type": "triangle",
+        "x": 537,
+        "y": 200
+      },
+    {
+      "type": "triangle",
+      "x": 581,
+      "y": 259
+    },
+    },
+    {
+      "type": "group",
+      "list": {
+        "type": "group",
+        "list": {
+          "type": "square",
+          "x": 211,
+          "y": 243
+        },
+    {
+      "type": "square",
+      "x": 297,
+      "y": 273
+    },
+    },
+    {
+      "type": "group",
+      "list": {
+        "type": "triangle",
+        "x": 537,
+        "y": 200
+      },
+    {
+      "type": "triangle",
+      "x": 581,
+      "y": 259
+    }
+    },
+  }
+  ]
+}

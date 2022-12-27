@@ -4,4 +4,5 @@
 /Users/ilyassbouissa/eclipse-workspace/PC/src/test/java/edu/uga/miage/m1/polygons/gui/ReadXMLFileTest.java
 /Users/ilyassbouissa/eclipse-workspace/PC/src/test/java/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitorTest.java
 /Users/ilyassbouissa/eclipse-workspace/PC/src/test/java/edu/uga/miage/m1/polygons/gui/shapes/TriangleTest.java
+/Users/ilyassbouissa/eclipse-workspace/PC/src/test/java/edu/uga/miage/m1/polygons/gui/shapes/GroupTest.java
 /Users/ilyassbouissa/eclipse-workspace/PC/src/test/java/edu/uga/miage/m1/polygons/gui/shapes/CircleTest.java

@@ -19,17 +19,17 @@ import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 <span class="fc" id="L19">    }</span>
 
     private String getString(SimpleShape simpleShape) {
-<span class="fc" id="L22">        String s = &quot; &lt;shape&gt;&lt;type&gt;&quot; + simpleShape.getType() + &quot;&lt;/type&gt;&quot;;</span>
+<span class="fc" id="L22">        StringBuilder s = new StringBuilder(&quot; &lt;shape&gt;&lt;type&gt;&quot; + simpleShape.getType() + &quot;&lt;/type&gt;&quot;);</span>
 <span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (simpleShape.getType().equals(&quot;group&quot;)) {</span>
-<span class="nc" id="L24">            s += &quot;&lt;list&gt;&quot;;</span>
+<span class="nc" id="L24">            s.append(&quot;&lt;list&gt;&quot;);</span>
 <span class="nc bnc" id="L25" title="All 2 branches missed.">            for (SimpleShape shape : ((Group) simpleShape).getListGroup()) {</span>
-<span class="nc" id="L26">                s += this.getString(shape);</span>
+<span class="nc" id="L26">                s.append(this.getString(shape));</span>
 <span class="nc" id="L27">            }</span>
-<span class="nc" id="L28">            s += &quot;&lt;/list&gt;&lt;/shape&gt;&quot;;</span>
+<span class="nc" id="L28">            s.append(&quot;&lt;/list&gt;&lt;/shape&gt;&quot;);</span>
         } else {
-<span class="fc" id="L30">            s += &quot;&lt;x&gt;&quot; + simpleShape.getX() + SEP_POS_XY + simpleShape.getY() + END_SHAPE;</span>
+<span class="fc" id="L30">            s.append(&quot;&lt;x&gt;&quot;).append(simpleShape.getX()).append(SEP_POS_XY).append(simpleShape.getY()).append(END_SHAPE);</span>
         }
-<span class="fc" id="L32">        return s;</span>
+<span class="fc" id="L32">        return s.toString();</span>
     }
 
     /**

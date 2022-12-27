@@ -12,5 +12,5 @@ public interface Visitable {
      *
      * @param visitor
      */
-    void accept(Visitor visitor);
+    public void accept(Visitor visitor);
 }

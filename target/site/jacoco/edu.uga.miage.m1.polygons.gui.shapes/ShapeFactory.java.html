@@ -3,21 +3,18 @@
 <span class="fc" id="L3">public class ShapeFactory {</span>
     //use getShape method to get object of type shape
     public SimpleShape getShape(String shapeType, int x, int y) {
-<span class="pc bpc" id="L6" title="1 of 2 branches missed.">        if (shapeType == null) {</span>
-<span class="nc" id="L7">            return null;</span>
+<span class="fc bfc" id="L6" title="All 5 branches covered.">        switch (shapeType.toUpperCase()) {</span>
+            case &quot;CIRCLE&quot;:
+<span class="fc" id="L8">                return new Circle(x, y);</span>
+            case &quot;TRIANGLE&quot;:
+<span class="fc" id="L10">                return new Triangle(x, y);</span>
+            case &quot;SQUARE&quot;:
+<span class="fc" id="L12">                return new Square(x, y);</span>
+            case &quot;GROUP&quot;:
+<span class="fc" id="L14">                return new Group(x, y);</span>
+            default:
+<span class="fc" id="L16">                return null;</span>
         }
-<span class="fc bfc" id="L9" title="All 2 branches covered.">        if (shapeType.equalsIgnoreCase(&quot;CIRCLE&quot;)) {</span>
-<span class="fc" id="L10">            return new Circle(x, y);</span>
-
-<span class="fc bfc" id="L12" title="All 2 branches covered.">        } else if (shapeType.equalsIgnoreCase(&quot;TRIANGLE&quot;)) {</span>
-<span class="fc" id="L13">            return new Triangle(x, y);</span>
-
-<span class="pc bpc" id="L15" title="1 of 2 branches missed.">        } else if (shapeType.equalsIgnoreCase(&quot;SQUARE&quot;)) {</span>
-<span class="fc" id="L16">            return new Square(x, y);</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        } else if (shapeType.equalsIgnoreCase(&quot;GROUP&quot;)) {</span>
-<span class="nc" id="L18">            return new Group(x, y);</span>
-        }
-<span class="nc" id="L20">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

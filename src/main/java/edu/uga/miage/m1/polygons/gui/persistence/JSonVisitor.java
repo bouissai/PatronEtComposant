@@ -17,34 +17,19 @@ public class JSonVisitor implements Visitor {
     }
 
     private String getString(SimpleShape simpleShape) {
-        String s = "{\"type\":\"" + simpleShape.getType() + "\",";
+        StringBuilder s = new StringBuilder("{\"type\":\"" + simpleShape.getType() + "\",");
 
         if (simpleShape.getType().equals("group")) {
-            s += "\"list\":";
+            s.append("\"list\":");
             for (SimpleShape shape : ((Group) simpleShape).getListGroup()) {
-                s += this.getString(shape) + ",";
+                s.append(this.getString(shape)).append(",");
             }
-            s += "}";
+            s.append("}");
         } else {
-            s += "\"x\":" + simpleShape.getX() + SEP_POS_XY + simpleShape.getY() + "}";
+            s.append("\"x\":").append(simpleShape.getX()).append(SEP_POS_XY).append(simpleShape.getY()).append("}");
         }
-        return s;
+        return s.toString();
     }
-
-    //@Override
-    //public void visit(Circle circle) {
-    //    representation =circle\ + circle.getX() + SEP_POS_XY + circle.getY() + "}";
-    //}
-
-    //@Override
-    //public void visit(Square square) {
-    //    representation = "{\"type\":\"square\",\"x\":" + square.getX() + SEP_POS_XY + square.getY() + "}";
-    //}
-
-    //@Override
-    //public void visit(Triangle triangle) {
-    //    representation = "{\"type\":\"triangle\",\"x\":" + triangle.getX() + SEP_POS_XY + triangle.getY() + "}";
-    //}
 
     /**
      * @return the representation in JSon example for a Circle

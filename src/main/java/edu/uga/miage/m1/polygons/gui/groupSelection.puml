@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+App -> Jdrawing: create(String frameName)
+Jdrawing -> ShapeFactory: create()
+group mousePressed(MouseEvent evt)
+    loop shape in shapes
+        alt [condition shape is group]
+            Jdrawing --> Jdrawing: isClickedOnShape = isClickedOnGroup(mouseClickedX, mouseClickedY, groupSelected)
+        else
+            Jdrawing --> Jdrawing: isClickedOnShape = isClickedOnShapeExceptGroup(mouseClickedX, mouseClickedY, shape)
+        end
+        alt [condition lastShapeSelected == null]
+            Jdrawing --> Jdrawing: xPressed = mouseClickedX;
+            Jdrawing --> Jdrawing: yPressed = mouseClickedY;
+        end
+    end loop
+end group
+
+group mouseReleased(MouseEvent evt)
+    Jdrawing --> Jdrawing: repaintGraph()
+    alt [condition checkbox.isSelected()]
+        Jdrawing --> Jdrawing: repaintGraph()
+        Jdrawing -> ShapeFactory: shapeFactory.getShape(TYPE_GROUP, 0, 0);
+        ShapeFactory --> Group: create(0,0)
+        ShapeFactory \\-- Group
+        Jdrawing \\-- ShapeFactory
+        Jdrawing --> Group: setCoordMinMax(minX, minY, maxX, maxY)
+        Group --> Group: setXY(coordCenterGroupX, coordCenterGroupY);
+        Jdrawing --> Jdrawing: addShapeToGroupIfShapeSelected(xReleased, yReleased, groupSelected)
+        Jdrawing --> Jdrawing: draw(groupSelected)
+        Jdrawing --> Jdrawing: repaint
+    end
+
+
+    end group
+
+@enduml

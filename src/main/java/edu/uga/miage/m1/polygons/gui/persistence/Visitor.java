@@ -10,6 +10,6 @@ import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 public interface Visitor {
 
 
-    void visit(SimpleShape simpleShape);
+    public void visit(SimpleShape simpleShape);
 
 }

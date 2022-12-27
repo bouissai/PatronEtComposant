@@ -1,6 +1,7 @@
 package edu.uga.miage.m1.polygons.gui;
 
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
+import edu.uga.miage.m1.polygons.gui.shapes.ShapeFactory;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 import org.w3c.dom.Document;
@@ -21,12 +22,13 @@ import java.util.logging.Level;
 
 import static edu.uga.miage.m1.polygons.gui.JDrawingFrame.logger;
 
+
 public class ReadXMLFile {
 
     File selectedFile;
-    private transient ArrayList<Circle> circleShape = new ArrayList<>();
-    private transient ArrayList<Triangle> triangleShape = new ArrayList<>();
-    private transient ArrayList<Square> squareShape = new ArrayList<>();
+    private ArrayList<Circle> circleShape = new ArrayList<>();
+    private ArrayList<Triangle> triangleShape = new ArrayList<>();
+    private ArrayList<Square> squareShape = new ArrayList<>();
 
     public ReadXMLFile(File selectedFile) {
         this.selectedFile = selectedFile;
@@ -64,29 +66,30 @@ public class ReadXMLFile {
         }
         Document doc = null;
         try {
-            doc = db.parse(file);
+            if (db != null) doc = db.parse(file);
         } catch (SAXException | IOException e) {
             logger.log(Level.SEVERE, e, () -> "An error occurred when parse at getShapes(). " + e);
         }
-        doc.getDocumentElement().normalize();
-        NodeList nodeList = doc.getElementsByTagName("shape");
-        // nodeList is not iterable, so we are using for loop
-        for (int itr = 0; itr < nodeList.getLength(); itr++) {
-            Node node = nodeList.item(itr);
-            if (node.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) node;
-                switch (eElement.getElementsByTagName("type").item(0).getTextContent()) {
-                    case "circle":
-                        circleShape.add(new Circle(Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
-                        break;
-                    case "triangle":
-                        triangleShape.add(new Triangle(Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
-                        break;
-                    case "square":
-                        squareShape.add(new Square(Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
-                        break;
-                    default:
-                        break;
+        if (doc != null) {
+            doc.getDocumentElement().normalize();
+            NodeList nodeList = doc.getElementsByTagName("shape");
+
+            // nodeList is not iterable, so we are using for loop
+            for (int itr = 0; itr < nodeList.getLength(); itr++) {
+                Node node = nodeList.item(itr);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) node;
+                    ShapeFactory shapeFactory = new ShapeFactory();
+                    String typeShape = eElement.getElementsByTagName("type").item(0).getTextContent();
+                    switch (typeShape) {
+                        case "circle" ->
+                                circleShape.add((Circle) shapeFactory.getShape("circle", Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
+                        case "triangle" ->
+                                triangleShape.add((Triangle) shapeFactory.getShape("triangle", Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
+                        case "square" ->
+                                squareShape.add((Square) shapeFactory.getShape("square", Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
+                        default -> logger.log(Level.SEVERE, "Type {0} not supported yet. ",typeShape);
+                    }
                 }
             }
         }

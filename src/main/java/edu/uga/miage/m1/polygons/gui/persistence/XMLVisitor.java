@@ -19,17 +19,17 @@ public class XMLVisitor implements Visitor {
     }
 
     private String getString(SimpleShape simpleShape) {
-        String s = " <shape><type>" + simpleShape.getType() + "</type>";
+        StringBuilder s = new StringBuilder(" <shape><type>" + simpleShape.getType() + "</type>");
         if (simpleShape.getType().equals("group")) {
-            s += "<list>";
+            s.append("<list>");
             for (SimpleShape shape : ((Group) simpleShape).getListGroup()) {
-                s += this.getString(shape);
+                s.append(this.getString(shape));
             }
-            s += "</list></shape>";
+            s.append("</list></shape>");
         } else {
-            s += "<x>" + simpleShape.getX() + SEP_POS_XY + simpleShape.getY() + END_SHAPE;
+            s.append("<x>").append(simpleShape.getX()).append(SEP_POS_XY).append(simpleShape.getY()).append(END_SHAPE);
         }
-        return s;
+        return s.toString();
     }
 
     /**
