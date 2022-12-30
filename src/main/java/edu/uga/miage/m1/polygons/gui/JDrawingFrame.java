@@ -23,6 +23,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 
+
 /**
  * This class represents the main application class, which is a JFrame subclass
  * that manages a toolbar of shapes and a drawing canvas.
@@ -66,6 +67,8 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private int yPressed;
     private transient Rectangle2D selectionBox;
 
+    private int cursorUndoRedoList = 0;
+    
 
     /**
      * Default constructor that populates the main window.
@@ -96,11 +99,42 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         JButton buttonImportXML = new JButton("Import XML");
         importFromXmlFile(buttonImportXML);
 
+        JButton buttonUndo = new JButton("Undo <");
+        undoShape(buttonUndo);
+
+        JButton buttonRedo = new JButton("> Redo");
+        redoShape(buttonRedo);
+
+        mtoolbar.add(buttonUndo);
+        mtoolbar.add(buttonRedo);
+
         mtoolbar.add(buttonReset);
         mtoolbar.add(buttonJSON);
         mtoolbar.add(buttonXML);
         mtoolbar.add(buttonImportXML);
         mtoolbar.add(checkbox);
+    }
+
+    // TODO UNDO = BACK = CTRL+Z
+    private void undoShape(JButton buttonUndo) {
+        buttonUndo.addActionListener(e -> {
+            if(cursorUndoRedoList >0){
+                cursorUndoRedoList--;
+                logger.log(Level.INFO,"Je repaint dans le undo");
+                repaintGraph();
+            }
+        });
+    }
+
+    // TODO EN AVANT = REDO = CTRL+Y
+    private void redoShape(JButton buttonRedo) {
+        buttonRedo.addActionListener(e -> {
+            if(cursorUndoRedoList < shapes.size()){
+                cursorUndoRedoList++;
+                logger.log(Level.INFO,"Je repaint dans le redo");
+                repaintGraph();
+            }
+        });
     }
 
     private void fillsPanel() {
@@ -161,10 +195,24 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private void setNewShape(MouseEvent evt, Graphics2D g2, String typeShape) {
         SimpleShape s = shapeFactory.getShape(typeShape, evt.getX(), evt.getY());
+        if((cursorUndoRedoList+1)<shapes.size()){
+            String str ="{";
+            for (SimpleShape shape : shapes) {
+                str+=shape.getType()+",";
+            }
+            logger.info(str+"}");
+            logger.info(""+shapes);
+            int nbShapeToDelete = shapes.size();
+            for (int i = cursorUndoRedoList+1; i < shapes.size(); i++) {
+                shapes.remove(shapes.get(i));
+            }
+        }
+        shapes.add(s);
+        cursorUndoRedoList++;
+        repaintGraph();
         s.draw(g2);
         s.accept(jsonShape);
         s.accept(xmlShape);
-        shapes.add(s);
         shapeListJsonFormat.add(jsonShape.getRepresentation());
         shapeListXMLFormat.add(xmlShape.getRepresentation());
     }
@@ -373,7 +421,12 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     public void repaintGraph() {
         Graphics2D g2 = getGraphics2D();
         paint(this.getGraphics());
-        shapes.forEach(shape -> shape.draw(g2));
+
+        for (int i = 0; i < cursorUndoRedoList; i++) {
+            shapes.get(i).draw(g2);
+        }
+
+        //shapes.forEach(shape -> shape.draw(g2));
         if ((checkbox.isSelected()) && (selectionBox != null)) {
             g2.setColor(new Color(100, 100, 100, 100));
             g2.fill(selectionBox);
@@ -503,6 +556,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private void resetMyBoard(JButton buttonReset) {
         buttonReset.addActionListener(e -> {
+            cursorUndoRedoList = 0;
             shapeListJsonFormat = new ArrayList<>();
             shapeListXMLFormat = new ArrayList<>();
             shapes = new ArrayList<>();

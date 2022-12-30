@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Sarakzit extends SimpleShape implements Visitable {
 
     public Sarakzit(int x, int y) {
-        super(x-25, y-25);
+        super(x, y);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Sarakzit extends SimpleShape implements Visitable {
         try {
             File input = new File("src/main/resources/edu/uga/miage/m1/polygons/gui/images/sarakzit.png");
             BufferedImage image = ImageIO.read(input);
-            g2.drawImage( image, getX(), getY(), null);
+            g2.drawImage( image, getX()-25, getY()-25, null);
         } catch (IOException e) {
             e.printStackTrace();
         }

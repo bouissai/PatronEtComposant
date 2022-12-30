@@ -4,6 +4,7 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 
 import java.awt.*;
 
+
 /**
  * This interface defines the <tt>SimpleShape</tt> extension. This extension
  * is used to draw shapes.
@@ -41,6 +42,4 @@ public abstract class SimpleShape implements Visitable {
         this.mX = x;
         this.mY = y;
     }
-
-
 }
