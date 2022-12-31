@@ -114,22 +114,22 @@ comme nous n'avons pas implémenté le partage de formes avec un autre binôme, 
 
 ### Avancée du projet ###
 * notre avancé au premier rendu 
-✅ patron composite
-✅ patron factory
-✅ patron visiteur
-✅ création de formes
-✅ création de groupes
-✅ création de groupes avec sous groupes
-✅ déplacement de toutes les formes
-✅ export XML et JSON
-✅ import XML
-✅ bouton reset
-✅ refactoring des méthodes pour clean code
-✅ couverture de test à 25%
-✅ documents de conceptions
-❌ import JSON
-❌ control Z
-❌ rapport
+- ✅ patron composite
+- ✅ patron factory
+- ✅ patron visiteur
+- ✅ création de formes
+- ✅ création de groupes
+- ✅ création de groupes avec sous groupes
+- ✅ déplacement de toutes les formes
+- ✅ export XML et JSON
+- ✅ import XML
+- ✅ bouton reset
+- ✅ refactoring des méthodes pour clean code
+- ✅ couverture de test à 25%
+- ✅ documents de conceptions
+- ❌ import JSON
+- ❌ control Z
+- ❌ rapport
 
 * notre avancé au second rendu
 - ✅ un rapport un peu plus présentable !
@@ -139,10 +139,10 @@ comme nous n'avons pas implémenté le partage de formes avec un autre binôme, 
 - ✅ adaptation des documents de conceptions avec la nouvelle image
 
 * ce qui nous reste à implémenter
-❌ monter la couverture de test à 70%
-❌ récupérer le .jar d'un autre binôme et le tester avec notre code
-❌ améliorer le undo pour prendre en compte tous les cas (comme le respect de l'ordre de création des objets)
-❌ faire un redo
+- ❌ monter la couverture de test à 70%
+- ❌ récupérer le .jar d'un autre binôme et le tester avec notre code
+- ❌ améliorer le undo pour prendre en compte tous les cas (comme le respect de l'ordre de création des objets)
+- ❌ faire un redo
 
 - - - -
 
