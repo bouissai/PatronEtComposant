@@ -6,12 +6,12 @@ Binôme : GUERBAA Rayan  & BOUISSA Ilyass
 - - - -
 
 ### Sommaire ###
-* présentation du projet
-* organisation du projet
+* Présentation du projet
+* Organisation du projet
 * Conception
-* fonctionnement des fonctionnalités implémentées 
-* avancée du projet 
-* conclusion
+* Fonctionnalités implémentées 
+* Avancée du projet 
+* Conclusion
 
 - - - -
 
@@ -33,23 +33,37 @@ Pour cela, nous avons passé les premières séances à développer des petites 
 A partir d'un certain avancement dans le projet, nous avons conçu différents diagrammes pour illustrer les patrons composants que nous avons utilisé.
 
 * Diagramme de classe 
-Dans un 1er temps nous avons implementé ces 2 diagramme pour représenté nos premières idées de conception sur l'utilisation du patron composant et visitor
+Dans un 1er temps nous avons implementé ces 2 diagramme pour représenté nos premières idées de conception sur l'utilisation du patron composant et patron visitor
 - diagramme de classe 1 : notre projet actuel
 <img src="document_conception/DC_1.png" alt="drawing"/>
 - diagramme de classe 2 : ce que l'on souhaite faire
   <img src="document_conception/DC_2.png" alt="drawing"/>
 
 Ensuite, nous avons avancé dans les incréments et nous devions ajouter de nouvelles fonctionnalités dans notre projet.
-Pour cela, nous avons avancé notre projet et conçu un nouveau diagramme de classe correpondant à l'état final
-
-
+Pour cela, nous avons avancé notre projet et conçu un nouveau diagramme de classe correpondant à l'état final de notre projet et également au premier rendu.
+- diagramme de classe 3 : premier rendu
+  <img src="document_conception/Diagramme de Classe Projet PC V1.svg" alt="drawing"/>
+  
+Ensuite, nous avons effectué des modification avec l'ajout des fonctionnalité undo et l'ajout d'une nouvelle image.
+Nous avons donc repris le diagramme précédent que nous avons adapté
+- diagramme de classe 4 : version finale et adaptée du projet pour le dernier rendu
+  <img src="document_conception/Diagramme de Classe Projet PC V2.svg" alt="drawing"/>
 
 * Diagramme de sequence
+Nous avons conçu plusieurs diagrammes de séquences pour représenter certaines fonctionnalités
 - Diagramme de séquence de la fonctionnalité Movable
   <img src="document_conception/DS_MOVABLE.png" alt="drawing"/>
+  - Diagramme de séquence de la fonctionnalité déplacer objet
+  <img src="document_conception/deplacerObjet.svg" alt="drawing"/>
+  - Diagramme de séquence de la fonctionnalité déplacement d'une forme
+  <img src="document_conception/diagramme_sequence.svg" alt="drawing"/>
+  - Diagramme de séquence de la fonctionnalité formation d'un groupe
+  <img src="document_conception/group_selection.svg" alt="drawing"/>
+
 
 * Diagramme de composant
-* 
+comme nous n'avons pas implémenté le partage de formes avec un autre binôme, nous n'avons pas conçu de diagramme de composant
+
 - - - -
 
 ### fonctionnalités implémentées ###
@@ -128,3 +142,4 @@ Pour cela, nous avons avancé notre projet et conçu un nouveau diagramme de cla
 - - - -
 
 ### Conclusion ###
+...
