@@ -32,7 +32,7 @@ Pour cela, nous avons passé les premières séances à développer des petites 
 
 A partir d'un certain avancement dans le projet, nous avons conçu différents diagrammes pour illustrer les patrons composants que nous avons utilisé.
 
-* Diagramme de classe *
+* Diagramme de classe
 Dans un 1er temps nous avons implementé ces 2 diagramme pour représenté nos premières idées de conception sur l'utilisation du patron composant et patron visitor
 - diagramme de classe 1 : notre projet actuel
 <img src="document_conception/DC_1.png" alt="drawing"/>
@@ -51,7 +51,7 @@ Nous avons donc repris le diagramme précédent que nous avons adapté
 <img src="document_conception/Diagramme de classe Projet PC V2.svg" alt="drawing"/>
 
 
-* Diagramme de sequence *
+* Diagramme de sequence
 Nous avons conçu plusieurs diagrammes de séquences pour représenter certaines fonctionnalités
 - Diagramme de séquence de la fonctionnalité Movable
 <img src="document_conception/DS_MOVABLE.png" alt="drawing"/>
