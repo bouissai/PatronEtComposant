@@ -37,7 +37,7 @@ Dans un 1er temps nous avons implementé ces 2 diagramme pour représenté nos p
 - diagramme de classe 1 : notre projet actuel
 <img src="document_conception/DC_1.png" alt="drawing"/>
 
-- diagramme de classe 2 : ce que l'on souhaite faire
+- diagramme de classe 2 : ce que l'on souhaitais faire
 <img src="document_conception/DC_2.png" alt="drawing"/>
 
 Ensuite, nous avons avancé dans les incréments et nous devions ajouter de nouvelles fonctionnalités dans notre projet.
@@ -113,39 +113,43 @@ comme nous n'avons pas implémenté le partage de formes avec un autre binôme, 
 - - - -
 
 ### Avancée du projet ###
-* notre avancé au premier rendu
-- [x] patron composite
-- [x] patron factory
-- [x] patron visiteur
-- [x] création de formes
-- [x] création de groupes
-- [x] création de groupes avec sous groupes
-- [x] déplacement de toutes les formes
-- [x] export XML et JSON
-- [x] import XML
-- [x] bouton reset
-- [x] refactoring des méthodes pour clean code
-- [x] couverture de test à 25%
-- [x] documents de conceptions
-- [ ] import JSON
-- [ ] control Z
-- [ ] rapport
+* notre avancé au premier rendu 
+✅ patron composite
+✅ patron factory
+✅ patron visiteur
+✅ création de formes
+✅ création de groupes
+✅ création de groupes avec sous groupes
+✅ déplacement de toutes les formes
+✅ export XML et JSON
+✅ import XML
+✅ bouton reset
+✅ refactoring des méthodes pour clean code
+✅ couverture de test à 25%
+✅ documents de conceptions
+❌ import JSON
+❌ control Z
+❌ rapport
 
 * notre avancé au second rendu
-- [x] un rapport un peu plus présentable !
-- [x] couverture de test passé à 35% 
-- [x] ajout d'une nouvelle image
-- [x] ajout d'un bouton undo
-- [x] adaptation des documents de conceptions avec la nouvelle image
+- ✅ un rapport un peu plus présentable !
+- ✅ couverture de test passé à 35% 
+- ✅ ajout d'une nouvelle image
+- ✅ ajout d'un bouton undo
+- ✅ adaptation des documents de conceptions avec la nouvelle image
 
 * ce qui nous reste à implémenter
-- [ ] monter la couverture de test à 70%
-- [ ] récupérer le .jar d'un autre binôme et le tester avec notre code
-- [ ] améliorer le undo pour prendre en compte tous les cas (comme le respect de l'ordre de création des objets)
-- [ ] faire un redo
-- [ ] ...
+❌ monter la couverture de test à 70%
+❌ récupérer le .jar d'un autre binôme et le tester avec notre code
+❌ améliorer le undo pour prendre en compte tous les cas (comme le respect de l'ordre de création des objets)
+❌ faire un redo
 
 - - - -
 
 ### Conclusion ###
-...
+Nous avons beaucoup appris à travers ce projet, nous avons découvert les différents patrons de conception et pu les réutiliser de manière adapter sur un cas concret.
+Nous avons plutôt bien avancé sur les fonctionnalités à développer, notament la séléction de groupe qui nous a pris beaucoup de temps à mettre au point.
+Cependant, il manque de nombreux tests pour couvrir l'application et la partie partage de formes.
+Toutefois, nous sommes plûtot content de notre travail effectué jusqu'à ce rendu, nous aurions apprécié avoir un peu plus de temps pour terminer les derniers incréments manquants.
+
+Merci à vous et Bonne année !
