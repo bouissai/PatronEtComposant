@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="548px" preserveAspectRatio="none" style="width:1169px;height:548px;background:#ffffff;" version="1.1" viewBox="0 0 1169 548" width="1169px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="90.9316" style="stroke:#000000;stroke-width:1.5;" width="935" x="228" y="181.4199"/><rect fill="none" height="59.6211" style="stroke:#000000;stroke-width:1.5;" width="915" x="238" y="205.7305"/><rect fill="none" height="59.6211" style="stroke:#000000;stroke-width:1.5;" width="825" x="238" y="286.3516"/><rect fill="none" height="90.9316" style="stroke:#000000;stroke-width:1.5;" width="812" x="228" y="359.9727"/><rect fill="none" height="59.6211" style="stroke:#000000;stroke-width:1.5;" width="792" x="238" y="384.2832"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="22" x2="22" y1="81.4883" y2="467.9043"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="189.5" x2="189.5" y1="81.4883" y2="467.9043"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="307" x2="307" y1="81.4883" y2="467.9043"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="5" y="78.5352">App</text><ellipse cx="22" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M22,21.5 L22,48.5 M9,29.5 L35,29.5 M22,48.5 L9,63.5 M22,48.5 L35,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="5" y="480.4395">App</text><ellipse cx="22" cy="491.8926" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M22,499.8926 L22,526.8926 M9,507.8926 L35,507.8926 M22,526.8926 L9,541.8926 M22,526.8926 L35,541.8926 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="83" x="148.5" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="155.5" y="70.5352">GUIHelper</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="83" x="148.5" y="466.9043"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="155.5" y="487.4395">GUIHelper</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="248" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="255" y="70.5352">JDrawingFrame</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="248" y="466.9043"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="255" y="487.4395">JDrawingFrame</text><polygon fill="#181818" points="178,108.7988,188,112.7988,178,116.7988,182,112.7988" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="22" x2="184" y1="112.7988" y2="112.7988"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="29" y="108.0566">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="42" y="108.0566">showOnFrame("test")</text><polygon fill="#181818" points="295,138.1094,305,142.1094,295,146.1094,299,142.1094" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="190" x2="301" y1="142.1094" y2="142.1094"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="197" y="137.3672">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="80" x="210" y="137.3672">create("test")</text><path d="M228,181.4199 L302,181.4199 L302,188.7305 L292,198.7305 L228,198.7305 L228,181.4199 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="90.9316" style="stroke:#000000;stroke-width:1.5;" width="935" x="228" y="181.4199"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="29" x="243" y="194.9883">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="136" x="317" y="194.0547">[for all shape in shapes]</text><path d="M238,205.7305 L300,205.7305 L300,213.041 L290,223.041 L238,223.041 L238,205.7305 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="59.6211" style="stroke:#000000;stroke-width:1.5;" width="915" x="238" y="205.7305"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="253" y="219.2988">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="108" x="315" y="218.3652">[isClickedOnShape]</text><line style="stroke:#181818;stroke-width:1.0;" x1="307" x2="349" y1="244.3516" y2="244.3516"/><line style="stroke:#181818;stroke-width:1.0;" x1="349" x2="349" y1="244.3516" y2="257.3516"/><line style="stroke:#181818;stroke-width:1.0;" x1="308" x2="349" y1="257.3516" y2="257.3516"/><polygon fill="#181818" points="318,253.3516,308,257.3516,318,261.3516,314,257.3516" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="314" y="239.6094">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="419" x="327" y="239.6094">shapeSelected(mouseClickedX, mouseClickedY, shape, shapeType)</text><path d="M758,231.541 L758,256.541 L1138,256.541 L1138,241.541 L1128,231.541 L758,231.541 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1128,231.541 L1128,241.541 L1138,241.541 L1128,231.541 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="359" x="764" y="249.1094">shapes correspond à la liste de toute les formes dessiner</text><path d="M238,286.3516 L504,286.3516 L504,293.6621 L494,303.6621 L238,303.6621 L238,286.3516 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="59.6211" style="stroke:#000000;stroke-width:1.5;" width="825" x="238" y="286.3516"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="221" x="253" y="299.9199">mouseDragged(MouseEvent evt)</text><line style="stroke:#181818;stroke-width:1.0;" x1="307" x2="349" y1="324.9727" y2="324.9727"/><line style="stroke:#181818;stroke-width:1.0;" x1="349" x2="349" y1="324.9727" y2="337.9727"/><line style="stroke:#181818;stroke-width:1.0;" x1="308" x2="349" y1="337.9727" y2="337.9727"/><polygon fill="#181818" points="318,333.9727,308,337.9727,318,341.9727,314,337.9727" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="314" y="320.2305">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="158" x="327" y="320.2305">setXYSelectedShapes(evt)</text><path d="M497,312.1621 L497,337.1621 L1048,337.1621 L1048,322.1621 L1038,312.1621 L497,312.1621 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1038,312.1621 L1038,322.1621 L1048,322.1621 L1038,312.1621 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="530" x="503" y="329.7305">setXYSelectedShapes(evt) modifie les coordonnees de la derniere forme selectionnée</text><path d="M228,359.9727 L496,359.9727 L496,367.2832 L486,377.2832 L228,377.2832 L228,359.9727 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="90.9316" style="stroke:#000000;stroke-width:1.5;" width="812" x="228" y="359.9727"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="223" x="243" y="373.541">mouseReleased(MouseEvent evt)</text><path d="M238,384.2832 L300,384.2832 L300,391.5938 L290,401.5938 L238,401.5938 L238,384.2832 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="59.6211" style="stroke:#000000;stroke-width:1.5;" width="792" x="238" y="384.2832"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="253" y="397.8516">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="95" x="315" y="396.918">[isShapeSelected]</text><line style="stroke:#181818;stroke-width:1.0;" x1="307" x2="349" y1="422.9043" y2="422.9043"/><line style="stroke:#181818;stroke-width:1.0;" x1="349" x2="349" y1="422.9043" y2="435.9043"/><line style="stroke:#181818;stroke-width:1.0;" x1="308" x2="349" y1="435.9043" y2="435.9043"/><polygon fill="#181818" points="318,431.9043,308,435.9043,318,439.9043,314,435.9043" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="9" x="314" y="418.1621">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="141" x="327" y="418.1621">repaintShapeSelected()</text><path d="M480,410.0938 L480,435.0938 L1015,435.0938 L1015,420.0938 L1005,410.0938 L480,410.0938 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1005,410.0938 L1005,420.0938 L1015,420.0938 L1005,410.0938 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="514" x="486" y="427.6621">repaintShapeSelected(evt) supprime les anciennes formes dessiné et les redessine</text><!--MD5=[42b6bb247bd4cfb10deec61ddf548c91]
+@startuml
+'https://plantuml.com/sequence-diagram
+autonumber
+
+actor App
+
+
+App - -> GUIHelper: showOnFrame("test")
+GUIHelper - -> JDrawingFrame: create("test")
+
+group mousePressed(MouseEvent evt)
+    loop for all shape in shapes
+        alt isClickedOnShape
+        JDrawingFrame -> JDrawingFrame: shapeSelected(mouseClickedX, mouseClickedY, shape, shapeType)
+        note right
+            shapes correspond à la liste de toute les formes dessiner
+        end note
+    end
+end
+group mouseDragged(MouseEvent evt)
+    JDrawingFrame -> JDrawingFrame: setXYSelectedShapes(evt)
+            note right
+                setXYSelectedShapes(evt) modifie les coordonnees de la derniere forme selectionnée
+            end note
+end
+group mouseReleased(MouseEvent evt)
+    alt isShapeSelected
+        JDrawingFrame -> JDrawingFrame: repaintShapeSelected()
+        note right
+            repaintShapeSelected(evt) supprime les anciennes formes dessiné et les redessine
+        end note
+    end
+end
+@enduml
+
+@startuml
+autonumber
+
+actor App
+
+
+App - -> GUIHelper: showOnFrame("test")
+GUIHelper - -> JDrawingFrame: create("test")
+
+group mousePressed(MouseEvent evt)
+    loop for all shape in shapes
+        alt isClickedOnShape
+        JDrawingFrame -> JDrawingFrame: shapeSelected(mouseClickedX, mouseClickedY, shape, shapeType)
+        note right
+            shapes correspond à la liste de toute les formes dessiner
+        end note
+    end
+end
+group mouseDragged(MouseEvent evt)
+    JDrawingFrame -> JDrawingFrame: setXYSelectedShapes(evt)
+            note right
+                setXYSelectedShapes(evt) modifie les coordonnees de la derniere forme selectionnée
+            end note
+end
+group mouseReleased(MouseEvent evt)
+    alt isShapeSelected
+        JDrawingFrame -> JDrawingFrame: repaintShapeSelected()
+        note right
+            repaintShapeSelected(evt) supprime les anciennes formes dessiné et les redessine
+        end note
+    end
+end
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

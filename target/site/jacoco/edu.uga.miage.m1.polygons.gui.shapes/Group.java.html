@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Group.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">persistenceG2_5</a> &gt; <a href="index.source.html" class="el_package">edu.uga.miage.m1.polygons.gui.shapes</a> &gt; <span class="el_source">Group.java</span></div><h1>Group.java</h1><pre class="source lang-java linenums">package edu.uga.miage.m1.polygons.gui.shapes;
+
+import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
+import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Objects;
+
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
+public class Group extends SimpleShape implements Visitable {
+    public static final String TYPE_GROUP = &quot;group&quot;;
+<span class="fc" id="L15">    private ArrayList&lt;SimpleShape&gt; myGroup = new ArrayList&lt;&gt;();</span>
+
+    private int x1;
+    private int y1;
+    private int x2;
+    private int y2;
+
+    public Group(int x, int y) {
+<span class="fc" id="L23">        super(x, y);</span>
+<span class="fc" id="L24">    }</span>
+
+    @Override
+    public void draw(Graphics2D g2) {
+<span class="fc" id="L28">        myGroup.forEach(shape -&gt; shape.draw(g2));</span>
+<span class="fc" id="L29">    }</span>
+
+    @Override
+    public void accept(Visitor visitor) {
+<span class="fc" id="L33">        visitor.visit(this);</span>
+<span class="fc" id="L34">    }</span>
+
+    @Override
+    public String getType() {
+<span class="fc" id="L38">        return TYPE_GROUP;</span>
+    }
+
+
+    public ArrayList&lt;SimpleShape&gt; getListGroup() {
+<span class="fc" id="L43">        return myGroup;</span>
+    }
+
+    public void addShape(SimpleShape shape) {
+<span class="fc" id="L47">        myGroup.add(shape);</span>
+<span class="fc" id="L48">    }</span>
+
+    public void removeShape(SimpleShape shape) {
+<span class="nc" id="L51">        myGroup.remove(shape);</span>
+<span class="nc" id="L52">    }</span>
+
+    public int getX1() {
+<span class="fc" id="L55">        return x1;</span>
+    }
+
+    public void setX1(int x1) {
+<span class="fc" id="L59">        this.x1 = x1;</span>
+<span class="fc" id="L60">    }</span>
+
+    public int getY1() {
+<span class="fc" id="L63">        return y1;</span>
+    }
+
+    public void setY1(int y1) {
+<span class="fc" id="L67">        this.y1 = y1;</span>
+<span class="fc" id="L68">    }</span>
+
+    public int getX2() {
+<span class="fc" id="L71">        return x2;</span>
+    }
+
+    public void setX2(int x2) {
+<span class="fc" id="L75">        this.x2 = x2;</span>
+<span class="fc" id="L76">    }</span>
+
+    public int getY2() {
+<span class="fc" id="L79">        return y2;</span>
+    }
+
+    public void setY2(int y2) {
+<span class="fc" id="L83">        this.y2 = y2;</span>
+<span class="fc" id="L84">    }</span>
+
+    public void setCoordMinMax(int x1, int y1, int x2, int y2) {
+<span class="fc" id="L87">        setX1(x1);</span>
+<span class="fc" id="L88">        setY1(y1);</span>
+<span class="fc" id="L89">        setX2(x2);</span>
+<span class="fc" id="L90">        setY2(y2);</span>
+<span class="fc" id="L91">        int coordCenterGroupX = (getX1() + getX2()) / 2;</span>
+<span class="fc" id="L92">        int coordCenterGroupY = (getY1() + getY2()) / 2;</span>
+<span class="fc" id="L93">        setXY(coordCenterGroupX, coordCenterGroupY);</span>
+<span class="fc" id="L94">    }</span>
+
+    public void updateCoordMinMax() {
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (!getListGroup().isEmpty()) {</span>
+<span class="fc" id="L98">            int minX = getX1();</span>
+<span class="fc" id="L99">            int minY = getY1();</span>
+<span class="fc" id="L100">            int maxX = getX2();</span>
+<span class="fc" id="L101">            int maxY = getY2();</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            for (SimpleShape simpleShape : getListGroup()) {</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">                if (Objects.equals(simpleShape.getType(), TYPE_GROUP)) {</span>
+<span class="fc" id="L104">                    Group groupShape = ((Group) simpleShape);</span>
+<span class="fc" id="L105">                    groupShape.updateCoordMinMax();</span>
+<span class="fc" id="L106">                    minX = max(minX, groupShape.getX2());</span>
+<span class="fc" id="L107">                    minY = max(minY, groupShape.getY2());</span>
+<span class="fc" id="L108">                    maxX = min(maxX, groupShape.getX1());</span>
+<span class="fc" id="L109">                    maxY = min(maxY, groupShape.getY1());</span>
+<span class="fc" id="L110">                    setCoordMinMax(maxX, maxY, minX, minY);</span>
+<span class="fc" id="L111">                } else {</span>
+<span class="fc" id="L112">                    minX = max(minX, simpleShape.getX());</span>
+<span class="fc" id="L113">                    minY = max(minY, simpleShape.getY());</span>
+<span class="fc" id="L114">                    maxX = min(maxX, simpleShape.getX());</span>
+<span class="fc" id="L115">                    maxY = min(maxY, simpleShape.getY());</span>
+<span class="fc" id="L116">                    setCoordMinMax(maxX - 25, maxY - 25, minX + 25, minY + 25);</span>
+                }
+<span class="fc" id="L118">            }</span>
+        }
+<span class="fc" id="L120">    }</span>
+
+    public void moveGroup(int translationX, int translationY) {
+<span class="fc" id="L123">        myGroup.forEach(shape -&gt; {</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">            if (shape.getType().equals(TYPE_GROUP)) {</span>
+<span class="fc" id="L125">                ((Group) shape).moveGroup(translationX, translationY);</span>
+            } else {
+<span class="fc" id="L127">                shape.setXY(shape.getX() + translationX, shape.getY() + translationY);</span>
+            }
+<span class="fc" id="L129">        });</span>
+<span class="fc" id="L130">        updateCoordMinMax();</span>
+<span class="fc" id="L131">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,9 +1,6 @@
 package edu.uga.miage.m1.polygons.gui;
 
-import edu.uga.miage.m1.polygons.gui.shapes.Circle;
-import edu.uga.miage.m1.polygons.gui.shapes.ShapeFactory;
-import edu.uga.miage.m1.polygons.gui.shapes.Square;
-import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
+import edu.uga.miage.m1.polygons.gui.shapes.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -29,6 +26,7 @@ public class ReadXMLFile {
     private ArrayList<Circle> circleShape = new ArrayList<>();
     private ArrayList<Triangle> triangleShape = new ArrayList<>();
     private ArrayList<Square> squareShape = new ArrayList<>();
+    private ArrayList<Sarakzit> sarakzitShape = new ArrayList<>();
 
     public ReadXMLFile(File selectedFile) {
         this.selectedFile = selectedFile;
@@ -88,6 +86,8 @@ public class ReadXMLFile {
                                 triangleShape.add((Triangle) shapeFactory.getShape("triangle", Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
                         case "square" ->
                                 squareShape.add((Square) shapeFactory.getShape("square", Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
+                        case "sarakzit" ->
+                                squareShape.add((Square) shapeFactory.getShape("sarakzit", Integer.parseInt(eElement.getElementsByTagName("x").item(0).getTextContent()), Integer.parseInt(eElement.getElementsByTagName("y").item(0).getTextContent())));
                         default -> logger.log(Level.SEVERE, "Type {0} not supported yet. ",typeShape);
                     }
                 }
@@ -105,5 +105,9 @@ public class ReadXMLFile {
 
     public List<Triangle> getTriangleShape() {
         return triangleShape;
+    }
+
+    public List<Sarakzit> getSarakzitShape() {
+        return sarakzitShape;
     }
 }

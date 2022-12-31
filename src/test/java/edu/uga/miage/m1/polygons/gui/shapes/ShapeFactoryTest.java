@@ -42,9 +42,17 @@ class ShapeFactoryTest {
     }
 
     @Test
+    void test_getShapes_sarakzit() {
+        SimpleShape groupFromFactory = shapeFactory.getShape("Sarakzit",2,3);
+        Assertions.assertEquals(2,groupFromFactory.getX());
+        Assertions.assertEquals(3,groupFromFactory.getY());
+    }
+
+
+    @Test
     void test_getShapes_error() {
-        SimpleShape groupFromFactory = shapeFactory.getShape("Losange",2,3);
-        Assertions.assertEquals(null,groupFromFactory);
+        SimpleShape sarakzitFromFactory = shapeFactory.getShape("Losange",2,3);
+        Assertions.assertEquals(null,sarakzitFromFactory);
     }
 
 }

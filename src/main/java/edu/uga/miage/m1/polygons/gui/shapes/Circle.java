@@ -24,7 +24,7 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class Circle extends SimpleShape implements Visitable {
+public class   Circle extends SimpleShape implements Visitable {
 
 
     public Circle(int x, int y) {

@@ -15,6 +15,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,6 +56,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private transient ArrayList<SimpleShape> shapes = new ArrayList<>();
 
 
+
     /**
      * Tracks buttons to manage the background.
      */
@@ -67,9 +69,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private int yPressed;
     private transient Rectangle2D selectionBox;
 
-    private int cursorUndoRedoList = 0;
-    
-
     /**
      * Default constructor that populates the main window.
      *
@@ -79,7 +78,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         super(frameName);
         initateComponents();
         fillsPanel();
-        // Add shapes in the menu
+
         toolbarButtonShapes(Shapes.SQUARE, "images/square.png");
         toolbarButtonShapes(Shapes.TRIANGLE, "images/triangle.png");
         toolbarButtonShapes(Shapes.CIRCLE, "images/circle.png");
@@ -102,11 +101,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         JButton buttonUndo = new JButton("Undo <");
         undoShape(buttonUndo);
 
-        JButton buttonRedo = new JButton("> Redo");
-        redoShape(buttonRedo);
-
         mtoolbar.add(buttonUndo);
-        mtoolbar.add(buttonRedo);
 
         mtoolbar.add(buttonReset);
         mtoolbar.add(buttonJSON);
@@ -115,27 +110,24 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         mtoolbar.add(checkbox);
     }
 
-    // TODO UNDO = BACK = CTRL+Z
+
     private void undoShape(JButton buttonUndo) {
         buttonUndo.addActionListener(e -> {
-            if(cursorUndoRedoList >0){
-                cursorUndoRedoList--;
-                logger.log(Level.INFO,"Je repaint dans le undo");
-                repaintGraph();
-            }
-        });
-    }
+                    if(!shapes.isEmpty()){
+                        SimpleShape lastShape = shapes.get(shapes.size()-1);
+                        if(Objects.equals(lastShape.getType(), "group")){
+                            Group lastGroup = (Group) lastShape;
+                            shapes.addAll(lastGroup.getListGroup());
+                            shapes.remove(lastShape);
+                        }else {
+                            shapes.remove(lastShape);
+                        }
+                        repaintGraph();
+                    }
+                    });
+                }
 
-    // TODO EN AVANT = REDO = CTRL+Y
-    private void redoShape(JButton buttonRedo) {
-        buttonRedo.addActionListener(e -> {
-            if(cursorUndoRedoList < shapes.size()){
-                cursorUndoRedoList++;
-                logger.log(Level.INFO,"Je repaint dans le redo");
-                repaintGraph();
-            }
-        });
-    }
+
 
     private void fillsPanel() {
         setLayout(new BorderLayout());
@@ -195,20 +187,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private void setNewShape(MouseEvent evt, Graphics2D g2, String typeShape) {
         SimpleShape s = shapeFactory.getShape(typeShape, evt.getX(), evt.getY());
-        if((cursorUndoRedoList+1)<shapes.size()){
-            String str ="{";
-            for (SimpleShape shape : shapes) {
-                str+=shape.getType()+",";
-            }
-            logger.info(str+"}");
-            logger.info(""+shapes);
-            int nbShapeToDelete = shapes.size();
-            for (int i = cursorUndoRedoList+1; i < shapes.size(); i++) {
-                shapes.remove(shapes.get(i));
-            }
-        }
         shapes.add(s);
-        cursorUndoRedoList++;
         repaintGraph();
         s.draw(g2);
         s.accept(jsonShape);
@@ -316,11 +295,10 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private void drawGroup(Group groupSelected) {
         groupSelected.updateCoordMinMax();
         if (groupSelected.getListGroup().size() > 1) {
-            for (SimpleShape simpleShape : groupSelected.getListGroup()) {
+            for (SimpleShape simpleShape : groupSelected.getListGroup()){
                 shapes.remove(simpleShape);
             }
-            shapes.add(groupSelected);
-            groupSelected.accept(jsonShape);
+            shapes.add(groupSelected);groupSelected.accept(jsonShape);
             groupSelected.accept(xmlShape);
             shapeListJsonFormat.add(jsonShape.getRepresentation());
             shapeListXMLFormat.add(xmlShape.getRepresentation());
@@ -422,11 +400,10 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         Graphics2D g2 = getGraphics2D();
         paint(this.getGraphics());
 
-        for (int i = 0; i < cursorUndoRedoList; i++) {
+        for (int i = 0; i < shapes.size(); i++) {
             shapes.get(i).draw(g2);
         }
 
-        //shapes.forEach(shape -> shape.draw(g2));
         if ((checkbox.isSelected()) && (selectionBox != null)) {
             g2.setColor(new Color(100, 100, 100, 100));
             g2.fill(selectionBox);
@@ -514,6 +491,13 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                 triangle.accept(xmlShape);
                 shapeListXMLFormat.add(xmlShape.getRepresentation());
                 shapes.add(triangle);
+            });            
+            xmldata.getSarakzitShape().stream().forEach(sarakzit -> {
+                Graphics2D g2 = getGraphics2D();
+                sarakzit.draw(g2);
+                sarakzit.accept(xmlShape);
+                shapeListXMLFormat.add(xmlShape.getRepresentation());
+                shapes.add(sarakzit);
             });
 
         });
@@ -556,7 +540,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private void resetMyBoard(JButton buttonReset) {
         buttonReset.addActionListener(e -> {
-            cursorUndoRedoList = 0;
             shapeListJsonFormat = new ArrayList<>();
             shapeListXMLFormat = new ArrayList<>();
             shapes = new ArrayList<>();

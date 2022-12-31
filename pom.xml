@@ -51,13 +51,6 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>mg_2_5</groupId>
-            <artifactId>mg_2_5</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/mg_2_5-1.0-SNAPSHOT.jar</systemPath>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
